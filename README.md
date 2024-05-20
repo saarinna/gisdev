@@ -46,3 +46,16 @@
      qgis
      ```
 5. **Set the Processing paths???**
+
+## Scripts
+
+The application has scripts that use PyQGIS and UMEP processing plugin
+
+1. **crop.py**
+   - The script takes the user defined polygon, reprojects it, and crops the digital elevation model and digital surface model.
+
+2. **skyviewfactor.py**
+   - The script creates skyviewfactor TIF files and shadowmats for input into the SOLWEIG analysis.
+
+3. **solweig.py**
+   - This script runs the SOLWEIG analysis, using the outputs from the previous scripts as input.
