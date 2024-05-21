@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMEP</title>
+</head>
+<body>
+    <h1>Run SOLWEIG processing</h1>
+    <a href="{% url 'leaflet_map' %}"><button type="button">Select Area for SOLWEIG</button></a>
+    <form action="{% url 'run_script' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="script_name" value="crop.py">Crop Data</button>
+        <button type="submit" name="script_name" value="skyviewfactor_walls.py">Create Skyviewfactor and Wall Heights and Aspects</button>
+        <button type="submit" name="script_name" value="solweig.py">Run SOLWEIG</button>
+        <button type="submit" name="script_name" value="view_image.py">View Result</button>
+    </form>
+
+</body>
+</html>
