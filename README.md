@@ -1,5 +1,9 @@
 # GIS Development Project
 
+This repository contains an application made to integrate QGIS with Django, utilizing the UMEP (Urban Multi-scale Environmental Predictor) QGIS plugin for spatial analysis and environmental modeling. The focus of the application is to estimate the mean radiant temperature (Tmrt) in complex urban environments using the SOLWEIG (SOlar and LongWave Environmental Irradiance Geometry) model.
+
+Read more about the SOLWEIG model on [UMEP Docs](https://umep-docs.readthedocs.io/en/latest/OtherManuals/SOLWEIG.html).
+
 # Installation Guide
 
 ## Prerequisites
@@ -47,15 +51,107 @@
      ```
 5. **Set the Processing paths???**
 
-## Scripts
+### 3. Set Up the Django Project
 
-The application has scripts that use PyQGIS and UMEP processing plugin
+1. **Download the Project Files:**
+   - Download the `mysite` folder from the project repository.
+   - Place it in a desired location on local machine.
 
-1. **crop.py**
-   - The script takes the user defined polygon, reprojects it, and crops the digital elevation model and digital surface model.
+2. **Open terminal in the Project Directory:**
+   - Open a terminal in the root of the Django project, where `manage.py` is located.
 
-2. **skyviewfactor.py**
-   - The script creates skyviewfactor TIF files and shadowmats for input into the SOLWEIG analysis.
+3. **Activate the Conda Environment:**
+   - Activate the Conda environment by running:
+     ```bash
+     conda activate qgis311
+     ```
 
-3. **solweig.py**
-   - This script runs the SOLWEIG analysis, using the outputs from the previous scripts as input.
+4. **Run the Django Server:**
+   - Start the Django development server with:
+     ```bash
+     python manage.py runserver
+     ```
+
+5. **Access the Application:**
+   - Open your browser and go to [http://127.0.0.1:8000/umep/](http://127.0.0.1:8000/umep/) to access the application.
+
+# Scripts
+
+The application has scripts that use PyQGIS, UMEP processing plugin, and different Python libraries. The scripts have input and output paths that need to be modified.
+
+ **crop.py**
+ 
+The script takes the user defined polygon, reprojects it, and crops the digital elevation model and digital surface model.
+   - Input:
+      - DSM_Helsinki.tif
+	   - DEM_Helsinki.tif
+	   - polygon_data.geojson
+	 	   - The user drawn polygon.
+   - Output:
+       - croppedsm.tif
+	    - croppedem.tif
+
+
+**skyviewfactor.py**
+
+The script creates skyviewfactor TIF files, shadowmats, wall heights, and wall aspects for input into the SOLWEIG analysis.
+   - Input:
+      - croppedsm.tif
+	   - croppedem.tif
+   - Output:
+      - skyviewfactor.tif
+	   - svf.zip
+	   - shadowmats.npz
+	   - wallAspect.tif
+	   - wallHeight.tif
+
+**solweig.py**
+
+The script runs the SOLWEIG analysis, using the outputs from the previous scripts as input.
+   - Input:
+      - croppedsm.tif
+	   - croppedem.tif
+      - skyviewfactor.tif
+	   - svf.zip
+	   - shadowmats.npz
+	   - wallAspect.tif
+	   - wallHeight.tif
+   - Output:
+      - Tmrt_average.tif
+
+**view_image.py**
+
+The script uses Python Library Pillow to read in the tif file. Python library matplotlib is used to display the Tmrt_average.tif, created in the SOLWEIG analysis.
+
+   - Input:
+      - Tmrt_average.tif
+
+The following parameters can be changed by the user:
+   - vmin
+   - vmax
+ - These parameters define the range of the values displayed. It is recommended to keep vmin at 10 or less.
+   - cmap
+ - The colormap can be set to the users preference. See: [available colormaps in matplotlib](https://matplotlib.org/stable/users/explain/colors/colormaps.html).
+ 
+# Input Data
+
+## DEM_Helsinki.tif
+
+The digital elevation model (DEM) represents the grounds surface elevation.
+
+- Resolution: 1 meters
+- Format: GeoTiff
+- Coordinate system: EPSG:3879 - ETRS89 / GK25FIN
+ 
+## DSM_Helsinki.tif
+
+The digital surface model (DSM) represents the grounds surface elevation and height of buildings.
+
+- Resolution: 1 meters
+- Format: GeoTiff
+- Coordinate system: EPSG:3879 - ETRS89 / GK25FIN
+ 
+## Weather Data
+
+# How To Use
+
