@@ -11,9 +11,7 @@ Read more about the SOLWEIG model on [UMEP Docs](https://umep-docs.readthedocs.i
 # Installation Guide
 
 ## Prerequisites
-- Linux
-- QGIS
-- Anaconda
+- A Linux based operating system
 
 ### 1. Install QGIS
 1. **Download and Install QGIS:**
