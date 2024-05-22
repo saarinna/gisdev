@@ -173,15 +173,21 @@ The downloaded DEM_Helsinki.tif and DSM_Helsinki files need to moved to `/home/u
      ```bash
      conda activate qgis311
      ```
-3. **Run the Django Server:**
+3. **Collect static files**
+   - Ensure that the applications css files are loaded by running:
+   ```bash
+   python manage.py collectstatic
+   ```
+
+4. **Run the Django Server:**
    - Start the Django development server with:
      ```bash
      python manage.py runserver
      ```
-4. **Access the Application:**
+5. **Access the Application:**
    - Open your browser and go to [http://127.0.0.1:8000/umep/](http://127.0.0.1:8000/umep/) to access the application.
 
-5. Click on Select Area for SOLWEIG
+6. Click on Select Area for SOLWEIG
 
 - A map view will open.
 - Use the drawing tools on the left hand side to draw a single polygon representing the area where the anaylsis will be run.
@@ -189,26 +195,26 @@ The downloaded DEM_Helsinki.tif and DSM_Helsinki files need to moved to `/home/u
 - A message will appear, telling that the polygon was saved succesfully.
 - Use browsers back button to get back to the main page.
 
-6. Click on Crop Data
+7. Click on Crop Data
 
 - Wait for the script to finish.
 - A message will appear, telling that the script has been ran succesfully.
 - Use browsers back button to get back to the main page.
 
-7. Click on Create Skyviewfactors and Wall Aspect and Ratio
+8. Click on Create Skyviewfactors and Wall Aspect and Ratio
 
 - Wait for the script to finish.
 - A message will appear, telling that the script has been ran succesfully.
 - Use browsers back button to get back to the main page.
 
-8. Click on Run SOLWEIG
+9. Click on Run SOLWEIG
 
 - Wait for the script to finish.
 - A message will appear, telling that the script has been ran succesfully.
 - Use browsers back button to get back to the main page.
 
-9. Click on View Result
+10. Click on View Result
 
 - A new window will open with a png image of the result.
 
-The tif files of the SOLWEIG output can be retrieved from django_server - data - output -solweig - Tmrt_average.tif
+The tif files of the SOLWEIG output can be retrieved from `/home/user/Documents/django_server/data/output/solweig`
