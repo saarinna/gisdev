@@ -52,7 +52,9 @@ Read more about the SOLWEIG model on [UMEP Docs](https://umep-docs.readthedocs.i
      qgis
      ```
 5. **Set the Processing paths???**
-
+   - In QGIS go to **Settings** > **Options** > **Processing** > **Models**
+   - Ensure that the **Models folder** is: `/home/user/.local/share/QGIS/QGIS3/profiles/default/processing/models`
+     
 ### 3. Set Up the Project Files
 
 1. **Download the Project Files:**
