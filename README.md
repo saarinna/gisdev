@@ -129,6 +129,8 @@ The following parameters can be changed by the user:
  
 # Input Data
 
+The DEM and DSM files can be downloaded from [OneDrive](https://aaltofi-my.sharepoint.com/:f:/g/personal/joona_niiranen_aalto_fi/Ehdcs40H-oFLrKgMzLOrl10BokBy9QxtArNi7bv5S-IMCg?e=ijMiKv).
+
 **DEM_Helsinki.tif**
 
 The digital elevation model (DEM) represents the grounds surface elevation.
@@ -160,6 +162,8 @@ Before the application can be used, the scripts file paths need to be modified.
 In `/home/user/Documents/django_server/scripts` all four scripts need to be modified.
 The `/home/user/Documents/django_server/umep/views.py` file needs to be modified.
 The files include filepaths `/home/user/Documents/django_server/...` where the `user` needs to be changed to match your local machines username.
+
+The downloaded DEM_Helsinki.tif and DSM_Helsinki files need to moved to `/home/user/Documents/django_server/data` directory.
 
 1. **Open terminal in the Project Directory:**
    - Open a terminal in the root of the Django project, where `manage.py` is located.
