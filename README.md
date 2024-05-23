@@ -155,7 +155,10 @@ The digital surface model (DSM) represents the grounds surface elevation and hei
  
 **weather_umep.txt**
 
- Weather data retrieved from the global the Coopernicus programme and Climate Data Store. Used in SOLWEIG analysis.
+ Weather data retrieved from the global the Coopernicus programme and Climate Data Store using UMEP's meteorological data download tool and the MetPreProcessor tool for formatting the data. Used in SOLWEIG analysis.
+ In the `data/weather_data` directory, there are four weather data files from may to august in 2020. The desired data can be used by **copying** the file into the `data` directory and renaming it to weather_umep.txt.
+
+ The UMEP manual provides a guide on how to download more weather data: [Meteorological Data: Download data (ERA5)](https://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20Download%20data%20%28ERA5%29.html), and how to format it: [Meteorological Data: MetPreprocessor](https://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html).
 
 # How To Use
 
