@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLWEIG</title>
+     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'umep/styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1>SOLWEIG processing tool</h1>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <h2>Welcome to use SOLWEIG tool!</h2>  
+            <p>On this page you can use the UMEP processing tool called SOLWEIG.
+            Start by selecting the area you want to use the tool on.
+            After successfully running any of the scripts, use the web browser's 
+            back button to go back to main page to continue to the next tool.</p>
+
+        <a href="{% url 'leaflet_map' %}"><button type="button">1. Select Area for SOLWEIG</button></a>
+        <form action="{% url 'run_script' %}" method="post">
+            {% csrf_token %}
+            
+            <div class="button-wrapper">
+                <p>After successfully selecting the area click here. This script crops the data to the selected area.</p>
+                <button type="submit" name="script_name" value="crop.py">2. Crop Data</button>
+            </div>
+            
+            <div class="button-wrapper">
+                <p>This script creates the sky view factor and calculates the heights and aspects of walls.</p>
+                <button type="submit" name="script_name" value="skyviewfactor_walls.py">3. Create Skyviewfactor and Wall Heights and Aspects</button>
+            </div>
+            
+            <div class="button-wrapper">
+                <p>This script runs the SOLWEIG processing tool. Make sure you have created the sky view factor and the heights and aspects of walls first.</p>
+                <button type="submit" name="script_name" value="solweig.py">4. Run SOLWEIG</button>
+            </div>
+            
+            <div class="button-wrapper">
+                <p>This script allows you to view the result of the SOLWEIG processing in png format.</p>
+                <button type="submit" name="script_name" value="view_image.py">5. View Result</button>
+            </div>
+        
+        </form>
+    </div>
+
+    <div class="sidebar">
+        <h2>How to interpret the results?</h2>
+        <p>The map represents outdoor thermal comfort, more specifically, the mean radiant temperature (MRT). MRT refers to the average temperature of all the surfaces surrounding a person. It is influenced by solar radiation, air temperature and temperatures of nearby objects. Thus, for instance, built morphology and green and blue infrastructure affect the values.  
+            <br><br>The ideal and comfortable outdoor MRT values depend on climate, environmental factors (e.g. wind and humidity), shading and personal preferences. Generally speaking, the ideal outdoor MRT for thermal comfort often ranges between 18°C to 29°C based on studies. 
+            <br><br>These results could be used for planning and improving green or blue infrastructure, and finding urban areas where improvements are needed. For example, increasing tree cover and green space promotes evaporative cooling and provides shade.</p>
+    </div>    
+</div>
+
+</body>
+</html>
