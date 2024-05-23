@@ -51,15 +51,16 @@ Read more about the SOLWEIG model on [UMEP Docs](https://umep-docs.readthedocs.i
      ```bash
      qgis
      ```
-5. **Set the Processing paths???**
+5. **Set the Processing paths**
    - In QGIS go to **Settings** > **Options** > **Processing** > **Models**
    - Ensure that the **Models folder** is: `/home/user/.local/share/QGIS/QGIS3/profiles/default/processing/models`
      
 ### 3. Set Up the Project Files
 
 1. **Download the Project Files:**
-   - Download the `mysite` folder from the project repository.
-   - Place it in the `Documents` directory on your local machine, so the path looks like: `/home/user/Documents/django_server`.
+   - Download the `django_server` folder from the project repository.
+   - Place it in the `Documents` directory on your local machine, so the path looks like: `/home/user/Documents/django_server/`.
+   - Download a DEM and DSM file from [OneDrive](https://aaltofi-my.sharepoint.com/:f:/g/personal/joona_niiranen_aalto_fi/Ehdcs40H-oFLrKgMzLOrl10BokBy9QxtArNi7bv5S-IMCg?e=ijMiKv). Place them in the `/home/user/Documents/django_server/data/` directory.
 
 
 
@@ -112,6 +113,7 @@ The script runs the SOLWEIG analysis, using the outputs from the previous script
 	   - shadowmats.npz
 	   - wallAspect.tif
 	   - wallHeight.tif
+           - weather_umep.txt
    - Output:
       - Tmrt_average.tif
 
