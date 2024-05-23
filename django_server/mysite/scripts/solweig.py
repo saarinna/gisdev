@@ -4,19 +4,10 @@ from qgis.core import QgsApplication
 # Linux and Anaconda
 # Need to install QGIS into an environment
 QgsApplication.setPrefixPath('/home/user/anaconda3/envs/qgis311/share/qgis', True)
-
 # Create a reference to the QgsApplication.  Setting the
 # second argument to False disables the GUI.
 qgs = QgsApplication([], False)
-
-# Load providers
 qgs.initQgis()
-
-# Put your pyqgis code here:
-print("Success!")
-
-# Finally, exitQgis() is called to remove the
-# provider and layer registries from memory
 qgs.exitQgis()
 
 import datetime
